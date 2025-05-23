@@ -3,329 +3,700 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sravya Amarchintha - Resume</title>
+    <title>Sravya Amarchintha - AI/ML Developer</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Georgia', serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            max-width: 8.5in;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0.5in;
-            background: white;
-        }
-        
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #2c3e50;
-            padding-bottom: 20px;
-        }
-        
-        .header h1 {
-            font-size: 28px;
-            color: #2c3e50;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            font-size: 14px;
-            color: #666;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .section {
-            margin-bottom: 25px;
-        }
-        
-        .section-title {
-            font-size: 18px;
-            color: #2c3e50;
-            border-bottom: 1px solid #bdc3c7;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .education-item, .experience-item, .project-item {
-            margin-bottom: 20px;
-        }
-        
-        .item-header {
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 8px;
-            flex-wrap: wrap;
+            align-items: center;
         }
-        
-        .item-title {
+
+        .logo {
+            font-size: 1.5rem;
             font-weight: bold;
-            color: #2c3e50;
-            font-size: 16px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        
-        .item-subtitle {
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="60" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="30" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            z-index: 2;
+            position: relative;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-button:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 80px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .profile-placeholder {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
             color: #666;
-            font-style: italic;
-            margin-top: 2px;
         }
-        
-        .item-date {
-            color: #666;
-            font-size: 14px;
-            white-space: nowrap;
+
+        .about-text h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
         }
-        
-        .item-location {
-            color: #666;
-            font-size: 14px;
-        }
-        
-        .item-description {
-            margin-top: 8px;
-        }
-        
-        .item-description ul {
-            margin-left: 20px;
-            margin-top: 5px;
-        }
-        
-        .item-description li {
-            margin-bottom: 5px;
-            color: #444;
-        }
-        
+
+        /* Skills Section */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
+            gap: 2rem;
+            margin-top: 2rem;
         }
-        
-        .skill-category {
-            margin-bottom: 10px;
+
+        .skill-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.1);
         }
-        
-        .skill-category strong {
-            color: #2c3e50;
-            display: block;
-            margin-bottom: 5px;
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
-        
-        .achievements ul, .certifications ul {
-            margin-left: 20px;
+
+        .skill-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
         }
-        
-        .achievements li, .certifications li {
-            margin-bottom: 8px;
+
+        .skill-card ul {
+            list-style: none;
         }
-        
+
+        .skill-card li {
+            padding: 0.3rem 0;
+            color: #666;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .skill-card li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-size: 0.8rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .project-header h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
         .project-tech {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .project-body {
+            padding: 1.5rem;
+        }
+
+        .project-body ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .project-body li {
+            padding: 0.3rem 0;
             color: #666;
-            font-style: italic;
-            font-size: 14px;
-            margin-bottom: 8px;
+            position: relative;
+            padding-left: 1.5rem;
         }
-        
-        @media print {
-            body {
-                margin: 0;
-                padding: 0.5in;
-            }
-            
-            .contact-info {
-                font-size: 12px;
-            }
-        }
-        
-        .coursework {
-            color: #666;
-            font-style: italic;
-            margin-top: 5px;
-        }
-        
-        .cgpa {
-            color: #27ae60;
+
+        .project-body li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
             font-weight: bold;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            margin-top: 2rem;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-date {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-company {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+        }
+
+        .contact .section-title {
+            color: white;
+            -webkit-text-fill-color: white;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-placeholder {
+                width: 200px;
+                height: 200px;
+                font-size: 3rem;
+            }
+
+            .section {
+                padding: 60px 1rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Floating Animation */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Sravya Amarchintha</h1>
-        <div class="contact-info">
-            <div class="contact-item">
-                <span>📱</span>
-                <span>+91 9666 448 618</span>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">SA</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Sravya Amarchintha</h1>
+            <p class="tagline">AI/ML Developer & Computer Science Student</p>
+            <a href="#about" class="cta-button">Discover My Work</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <div class="profile-placeholder floating">SA</div>
             </div>
-            <div class="contact-item">
-                <span>✉️</span>
-                <span>a.sravya13@gmail.com</span>
-            </div>
-            <div class="contact-item">
-                <span>🔗</span>
-                <a href="https://www.linkedin.com/in/sravya-amarchintha1/" target="_blank">LinkedIn Profile</a>
-            </div>
-            <div class="contact-item">
-                <span>💻</span>
-                <a href="https://github.com/sravya136" target="_blank">GitHub: sravya136</a>
+            <div class="about-text">
+                <h3>Passionate AI/ML Developer</h3>
+                <p>I'm a dedicated Computer Science student specializing in Artificial Intelligence and Machine Learning at CMR Technical Campus. With a strong academic record (CGPA: 9.00/10.00) and hands-on experience in cutting-edge technologies, I'm passionate about creating innovative solutions that make a difference.</p>
+                
+                <p>My journey in technology is driven by curiosity and a desire to solve complex problems. From developing intelligent virtual assistants to building machine learning models with 95% accuracy, I combine theoretical knowledge with practical application to create meaningful projects.</p>
+
+                <p>When I'm not coding, you'll find me mentoring fellow students, participating in hackathons, or playing badminton and chess. I believe in continuous learning and staying at the forefront of technological advancement.</p>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="section">
-        <h2 class="section-title">Education</h2>
-        <div class="education-item">
-            <div class="item-header">
-                <div>
-                    <div class="item-title">CMR Technical Campus</div>
-                    <div class="item-subtitle">Bachelor of Technology in Computer Science</div>
-                    <div class="item-subtitle">Specialization: Artificial Intelligence & Machine Learning</div>
-                    <div class="item-location">Hyderabad, Telangana</div>
-                </div>
-                <div>
-                    <div class="item-date">Expected May 2026</div>
-                    <div class="cgpa">CGPA: 9.00/10.00</div>
-                </div>
-            </div>
-            <div class="coursework">
-                <strong>Relevant Coursework:</strong> Data Structures and Algorithms (C++, Java), Python Programming, Data Analysis, Operating Systems, Artificial Intelligence, Database Management Systems, Object-Oriented Programming
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2 class="section-title">Experience</h2>
-        <div class="experience-item">
-            <div class="item-header">
-                <div>
-                    <div class="item-title">Temporary Online Mentor</div>
-                    <div class="item-subtitle">Being Zero</div>
-                    <div class="item-location">Remote</div>
-                </div>
-                <div class="item-date">January 2025 – May 2025</div>
-            </div>
-            <div class="item-description">
-                <ul>
-                    <li>Served as an online mentor, resolving coding and conceptual doubts in Data Structures and Algorithms for students</li>
-                    <li>Helped learners strengthen problem-solving skills by providing clear explanations and guidance on core DSA topics</li>
-                    <li>Mentored multiple students across various difficulty levels, improving their coding proficiency and algorithmic thinking</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2 class="section-title">Projects</h2>
-        
-        <div class="project-item">
-            <div class="item-header">
-                <div class="item-title">Virtual Assistant Application</div>
-            </div>
-            <div class="project-tech">Technologies: HTML, CSS, Bootstrap, Python, Eel, pyttsx3, SQLite, SpeechRecognition, pywhatkit, hugchat</div>
-            <div class="item-description">
-                <ul>
-                    <li>Designed and developed a versatile virtual assistant application using Python and Eel framework, applying software engineering principles to create a specialized utility program</li>
-                    <li>Implemented speech recognition and text-to-speech functionalities, reducing manual input time by 25% and enhancing hands-free control</li>
-                    <li>Created a user-friendly web interface using HTML, CSS, and Bootstrap, increasing user satisfaction by 20% through intuitive design</li>
-                    <li>Integrated SQLite database for efficient data storage and retrieval, improving query response time by 25%</li>
-                    <li>Extended functionality with pywhatkit for WhatsApp automation and hugchat for enhanced conversational capabilities</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="project-item">
-            <div class="item-header">
-                <div class="item-title">Handwritten Digit Recognition System</div>
-            </div>
-            <div class="project-tech">Technologies: Python, TensorFlow, Keras, Tkinter, NumPy, Pandas</div>
-            <div class="item-description">
-                <ul>
-                    <li>Designed and implemented a machine learning system for handwritten digit recognition using CNN architecture</li>
-                    <li>Achieved 95% accuracy on MNIST dataset through optimized model training and hyperparameter tuning</li>
-                    <li>Developed a responsive drawing canvas using Tkinter for real-time digit input and instant predictions</li>
-                    <li>Applied data preprocessing techniques and model evaluation methods to ensure robust performance</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="project-item">
-            <div class="item-header">
-                <div class="item-title">House Price Prediction System</div>
-            </div>
-            <div class="project-tech">Technologies: Python, NumPy, Pandas, scikit-learn</div>
-            <div class="item-description">
-                <ul>
-                    <li>Built a comprehensive house price prediction model using Linear Regression and feature engineering techniques</li>
-                    <li>Processed and analyzed housing datasets to identify key pricing factors and market trends</li>
-                    <li>Implemented data visualization and statistical analysis to improve model accuracy and interpretability</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2 class="section-title">Technical Skills</h2>
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2 class="section-title">Technical Expertise</h2>
         <div class="skills-grid">
-            <div class="skill-category">
-                <strong>Programming Languages:</strong>
-                C, C++, Java, Python, SQL, HTML, CSS
+            <div class="skill-card">
+                <h3>Programming Languages</h3>
+                <ul>
+                    <li>Python</li>
+                    <li>C/C++</li>
+                    <li>Java</li>
+                    <li>SQL</li>
+                    <li>HTML/CSS</li>
+                </ul>
             </div>
-            <div class="skill-category">
-                <strong>Technologies & Frameworks:</strong>
-                Git, Bootstrap, TensorFlow, Keras, scikit-learn
+            <div class="skill-card">
+                <h3>AI/ML Technologies</h3>
+                <ul>
+                    <li>TensorFlow</li>
+                    <li>Keras</li>
+                    <li>scikit-learn</li>
+                    <li>NumPy</li>
+                    <li>Pandas</li>
+                </ul>
             </div>
-            <div class="skill-category">
-                <strong>Core Concepts:</strong>
-                Data Structures, Algorithms, Operating Systems, Artificial Intelligence, Database Management, Object-Oriented Programming
+            <div class="skill-card">
+                <h3>Web & Tools</h3>
+                <ul>
+                    <li>Bootstrap</li>
+                    <li>Git</li>
+                    <li>SQLite</li>
+                    <li>Tkinter</li>
+                    <li>Eel Framework</li>
+                </ul>
             </div>
-            <div class="skill-category">
-                <strong>Soft Skills:</strong>
-                Communication, Critical Thinking, Problem Solving, Adaptability, Time Management
+            <div class="skill-card">
+                <h3>Core Concepts</h3>
+                <ul>
+                    <li>Data Structures & Algorithms</li>
+                    <li>Machine Learning</li>
+                    <li>Database Management</li>
+                    <li>Operating Systems</li>
+                    <li>OOP Principles</li>
+                </ul>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="section">
-        <h2 class="section-title">Achievements & Certifications</h2>
-        <div class="achievements">
-            <ul>
-                <li><strong>Competitive Programming:</strong> Solved over 600 problems across various platforms including HackerRank, LeetCode, and Codeforces</li>
-                <li><strong>Google Cloud Career Launchpad – Data Analyst Track (2024):</strong> Earned certification demonstrating proficiency in data analysis using Google Cloud tools and services</li>
-                <li><strong>Google AI-ML Virtual Internship (January – March 2024):</strong> Gained hands-on experience in machine learning algorithms and AI applications through AICTE Eduskills program</li>
-                <li><strong>Industrial Automation Certification:</strong> Completed training in automation technologies and control systems through AICTE Eduskills</li>
-                <li><strong>Smart India Hackathon (SIH):</strong> Received Appreciation Certificate for presenting an innovative solution at CMR Technical Campus</li>
-            </ul>
-        </div>
-    </div>
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Virtual Assistant Application</h3>
+                    <p class="project-tech">Python • Eel • SQLite • Speech Recognition</p>
+                </div>
+                <div class="project-body">
+                    <p>A comprehensive virtual assistant with voice recognition and automation capabilities.</p>
+                    <ul>
+                        <li>25% reduction in manual input time</li>
+                        <li>20% increase in user satisfaction</li>
+                        <li>Real-time speech processing</li>
+                        <li>WhatsApp automation integration</li>
+                    </ul>
+                </div>
+            </div>
 
-    <div class="section">
-        <h2 class="section-title">Activities & Interests</h2>
-        <div class="item-description">
-            <ul>
-                <li><strong>Professional Development:</strong> Actively participated in multiple software development bootcamps covering advanced topics in AI/ML and software engineering</li>
-                <li><strong>Sports & Recreation:</strong> Badminton player and chess enthusiast, demonstrating strategic thinking and competitive spirit</li>
-                <li><strong>Community Engagement:</strong> Regular participant in technical workshops and coding competitions at CMR Technical Campus</li>
-            </ul>
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Handwritten Digit Recognition</h3>
+                    <p class="project-tech">TensorFlow • Keras • CNN • Tkinter</p>
+                </div>
+                <div class="project-body">
+                    <p>Machine learning system for accurate digit recognition with interactive canvas.</p>
+                    <ul>
+                        <li>95% accuracy on MNIST dataset</li>
+                        <li>Real-time prediction capability</li>
+                        <li>Custom drawing interface</li>
+                        <li>Optimized CNN architecture</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>House Price Prediction</h3>
+                    <p class="project-tech">Python • scikit-learn • Pandas • NumPy</p>
+                </div>
+                <div class="project-body">
+                    <p>Predictive model for real estate pricing using linear regression techniques.</p>
+                    <ul>
+                        <li>Comprehensive data analysis</li>
+                        <li>Feature engineering optimization</li>
+                        <li>Market trend identification</li>
+                        <li>Statistical validation methods</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">January 2025 - May 2025</div>
+                <div class="timeline-title">Temporary Online Mentor</div>
+                <div class="timeline-company">Being Zero • Remote</div>
+                <p>Mentored students in Data Structures and Algorithms, helping them develop strong problem-solving skills and improve their coding proficiency through personalized guidance and clear explanations of complex concepts.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <h2 class="section-title">Let's Connect</h2>
+        <p>I'm always interested in discussing new opportunities, collaborations, or simply connecting with fellow technology enthusiasts.</p>
+        <div class="contact-links">
+            <a href="mailto:a.sravya13@gmail.com" class="contact-link">
+                <span>✉️</span>
+                <span>Email Me</span>
+            </a>
+            <a href="https://www.linkedin.com/in/sravya-amarchintha1/" target="_blank" class="contact-link">
+                <span>🔗</span>
+                <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/sravya136" target="_blank" class="contact-link">
+                <span>💻</span>
+                <span>GitHub</span>
+            </a>
+            <a href="tel:+919666448618" class="contact-link">
+                <span>📱</span>
+                <span>Call Me</span>
+            </a>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.skill-card, .project-card, .timeline-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add typing effect to hero text
+        const heroTitle = document.querySelector('.hero h1');
+        const text = heroTitle.textContent;
+        heroTitle.textContent = '';
+        
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                heroTitle.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+        
+        // Start typing effect after page load
+        window.addEventListener('load', () => {
+            setTimeout(typeWriter, 500);
+        });
+    </script>
 </body>
 </html>
