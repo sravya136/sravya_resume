@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sravya Amarchintha - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.5in;
+            background: white;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 20px;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            color: #2c3e50;
+            border-bottom: 1px solid #bdc3c7;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .education-item, .experience-item, .project-item {
+            margin-bottom: 20px;
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .item-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 16px;
+        }
+        
+        .item-subtitle {
+            color: #666;
+            font-style: italic;
+            margin-top: 2px;
+        }
+        
+        .item-date {
+            color: #666;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        
+        .item-location {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .item-description {
+            margin-top: 8px;
+        }
+        
+        .item-description ul {
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+        
+        .item-description li {
+            margin-bottom: 5px;
+            color: #444;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .skill-category {
+            margin-bottom: 10px;
+        }
+        
+        .skill-category strong {
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .achievements ul, .certifications ul {
+            margin-left: 20px;
+        }
+        
+        .achievements li, .certifications li {
+            margin-bottom: 8px;
+        }
+        
+        .project-tech {
+            color: #666;
+            font-style: italic;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0.5in;
+            }
+            
+            .contact-info {
+                font-size: 12px;
+            }
+        }
+        
+        .coursework {
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+        }
+        
+        .cgpa {
+            color: #27ae60;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Sravya Amarchintha</h1>
+        <div class="contact-info">
+            <div class="contact-item">
+                <span>📱</span>
+                <span>+91 9666 448 618</span>
+            </div>
+            <div class="contact-item">
+                <span>✉️</span>
+                <span>a.sravya13@gmail.com</span>
+            </div>
+            <div class="contact-item">
+                <span>🔗</span>
+                <a href="https://www.linkedin.com/in/sravya-amarchintha1/" target="_blank">LinkedIn Profile</a>
+            </div>
+            <div class="contact-item">
+                <span>💻</span>
+                <a href="https://github.com/sravya136" target="_blank">GitHub: sravya136</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Education</h2>
+        <div class="education-item">
+            <div class="item-header">
+                <div>
+                    <div class="item-title">CMR Technical Campus</div>
+                    <div class="item-subtitle">Bachelor of Technology in Computer Science</div>
+                    <div class="item-subtitle">Specialization: Artificial Intelligence & Machine Learning</div>
+                    <div class="item-location">Hyderabad, Telangana</div>
+                </div>
+                <div>
+                    <div class="item-date">Expected May 2026</div>
+                    <div class="cgpa">CGPA: 9.00/10.00</div>
+                </div>
+            </div>
+            <div class="coursework">
+                <strong>Relevant Coursework:</strong> Data Structures and Algorithms (C++, Java), Python Programming, Data Analysis, Operating Systems, Artificial Intelligence, Database Management Systems, Object-Oriented Programming
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-item">
+            <div class="item-header">
+                <div>
+                    <div class="item-title">Temporary Online Mentor</div>
+                    <div class="item-subtitle">Being Zero</div>
+                    <div class="item-location">Remote</div>
+                </div>
+                <div class="item-date">January 2025 – May 2025</div>
+            </div>
+            <div class="item-description">
+                <ul>
+                    <li>Served as an online mentor, resolving coding and conceptual doubts in Data Structures and Algorithms for students</li>
+                    <li>Helped learners strengthen problem-solving skills by providing clear explanations and guidance on core DSA topics</li>
+                    <li>Mentored multiple students across various difficulty levels, improving their coding proficiency and algorithmic thinking</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Projects</h2>
+        
+        <div class="project-item">
+            <div class="item-header">
+                <div class="item-title">Virtual Assistant Application</div>
+            </div>
+            <div class="project-tech">Technologies: HTML, CSS, Bootstrap, Python, Eel, pyttsx3, SQLite, SpeechRecognition, pywhatkit, hugchat</div>
+            <div class="item-description">
+                <ul>
+                    <li>Designed and developed a versatile virtual assistant application using Python and Eel framework, applying software engineering principles to create a specialized utility program</li>
+                    <li>Implemented speech recognition and text-to-speech functionalities, reducing manual input time by 25% and enhancing hands-free control</li>
+                    <li>Created a user-friendly web interface using HTML, CSS, and Bootstrap, increasing user satisfaction by 20% through intuitive design</li>
+                    <li>Integrated SQLite database for efficient data storage and retrieval, improving query response time by 25%</li>
+                    <li>Extended functionality with pywhatkit for WhatsApp automation and hugchat for enhanced conversational capabilities</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="item-header">
+                <div class="item-title">Handwritten Digit Recognition System</div>
+            </div>
+            <div class="project-tech">Technologies: Python, TensorFlow, Keras, Tkinter, NumPy, Pandas</div>
+            <div class="item-description">
+                <ul>
+                    <li>Designed and implemented a machine learning system for handwritten digit recognition using CNN architecture</li>
+                    <li>Achieved 95% accuracy on MNIST dataset through optimized model training and hyperparameter tuning</li>
+                    <li>Developed a responsive drawing canvas using Tkinter for real-time digit input and instant predictions</li>
+                    <li>Applied data preprocessing techniques and model evaluation methods to ensure robust performance</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="item-header">
+                <div class="item-title">House Price Prediction System</div>
+            </div>
+            <div class="project-tech">Technologies: Python, NumPy, Pandas, scikit-learn</div>
+            <div class="item-description">
+                <ul>
+                    <li>Built a comprehensive house price prediction model using Linear Regression and feature engineering techniques</li>
+                    <li>Processed and analyzed housing datasets to identify key pricing factors and market trends</li>
+                    <li>Implemented data visualization and statistical analysis to improve model accuracy and interpretability</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <strong>Programming Languages:</strong>
+                C, C++, Java, Python, SQL, HTML, CSS
+            </div>
+            <div class="skill-category">
+                <strong>Technologies & Frameworks:</strong>
+                Git, Bootstrap, TensorFlow, Keras, scikit-learn
+            </div>
+            <div class="skill-category">
+                <strong>Core Concepts:</strong>
+                Data Structures, Algorithms, Operating Systems, Artificial Intelligence, Database Management, Object-Oriented Programming
+            </div>
+            <div class="skill-category">
+                <strong>Soft Skills:</strong>
+                Communication, Critical Thinking, Problem Solving, Adaptability, Time Management
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Achievements & Certifications</h2>
+        <div class="achievements">
+            <ul>
+                <li><strong>Competitive Programming:</strong> Solved over 600 problems across various platforms including HackerRank, LeetCode, and Codeforces</li>
+                <li><strong>Google Cloud Career Launchpad – Data Analyst Track (2024):</strong> Earned certification demonstrating proficiency in data analysis using Google Cloud tools and services</li>
+                <li><strong>Google AI-ML Virtual Internship (January – March 2024):</strong> Gained hands-on experience in machine learning algorithms and AI applications through AICTE Eduskills program</li>
+                <li><strong>Industrial Automation Certification:</strong> Completed training in automation technologies and control systems through AICTE Eduskills</li>
+                <li><strong>Smart India Hackathon (SIH):</strong> Received Appreciation Certificate for presenting an innovative solution at CMR Technical Campus</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Activities & Interests</h2>
+        <div class="item-description">
+            <ul>
+                <li><strong>Professional Development:</strong> Actively participated in multiple software development bootcamps covering advanced topics in AI/ML and software engineering</li>
+                <li><strong>Sports & Recreation:</strong> Badminton player and chess enthusiast, demonstrating strategic thinking and competitive spirit</li>
+                <li><strong>Community Engagement:</strong> Regular participant in technical workshops and coding competitions at CMR Technical Campus</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
